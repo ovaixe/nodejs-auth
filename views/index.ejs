@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Wellcome to the simple auth application</h1>
+    <h2>Hello <%= name %></h2>
+    <h3>You viewed this page <%= req.session.views[path] %> times.</h3>
+    <% if(user.isAuthenticated) { %>
+    <div>
+        <a href="/users/register">Register</a>
+        <br>
+        <a href="/users/login">Log In</a>
+    </div>
+    <% } else { %>
+    <form action="/users/logout" method="POST">
+        <button type="submit">Log Out</button>
+    </form>
+    <% } %>
+</body>
+</html>
